@@ -19,7 +19,7 @@ getSubmitButton.addEventListener('click',(e)=>{
     }
     let finduser = readData.find(checkUser)
     if (finduser != undefined){
-        window.location = '/pages/index.html'
+        window.location = '/index.html'
         localStorage.setItem('logindata',JSON.stringify({name : getUserName , password : getUserPassword}))
     }
     else{
