@@ -22,7 +22,7 @@
                 <span class="">
                     <i class="fa-solid fa-bars mr-2"></i>
                 </span>
-                <h1 id='greet' class="text-xl font-bold"> Baper Bank </h1>
+                <h1 class="text-xl font-bold"> Baper Bank </h1>
             </div>
             <div class="w-1/2 flex justify-end">
                 <span id='balance' style='font-family: sans-serif;' class="bg-gray-200 text-gray-700 py-0 rounded-full text-sm mr-2 px-3 py-1">10$</span>
@@ -34,27 +34,31 @@
             </div>
         </nav>
         <section class="p-4">
+            <h1 class="text-4xl text-center mt-12 mb-2" id='greet' > Hello!  </h1>
             <img src="https://static.vecteezy.com/system/resources/previews/020/995/234/large_2x/3d-minimal-financial-or-money-growing-concept-growing-business-concept-small-tree-growing-from-money-3d-rendering-illustration-free-png.png" alt="">
-            <div class="flex items-center justify-between pt-8"  id="tab-box">
-                <button id="deposite-button" class="px-4 py-2 text-md bg-gray-100 text-gray-700 hover:bg-gray-200 border-1 border-gray-300/20 w-1/3"> Deposit </button>
-                <button id="withdraw-button" class="px-4 py-2 text-md bg-gray-100 text-gray-700 hover:bg-gray-200 border-1 border-gray-300/20 w-1/3"> Withdraw </button>
-                <button id="transfer-button" class="px-4 py-2 text-md bg-gray-100 text-gray-700 hover:bg-gray-200 border-1 border-gray-300/20 w-1/3"> Transfer </button>
+            <div class="flex items-center justify-between pt-8 rounded-t-lg overflow-hidden"  id="tab-box">
+                <button onclick="openTab(event,'deposit-box')"  class="tab-button px-4 py-2 text-md bg-gray-100 bg-gray-200 text-gray-700  border-1 border-gray-300/20 w-1/3"> Deposit </button>
+                <button onclick="openTab(event,'withdray-box')" class="tab-button px-4 py-2 text-md bg-gray-100 text-gray-700 border-1 border-gray-300/20 w-1/3"> Withdraw </button>
+                <button onclick="openTab(event,'transfer-box')" class="tab-button px-4 py-2 text-md bg-gray-100 text-gray-700 border-1 border-gray-300/20 w-1/3"> Transfer </button>
             </div>
-            <div class="w-full bg-gray-200 p-3 ">
+            <div class="w-full bg-gray-200 p-3 " id="tab-content-box">
                     <div id="deposit-box" class="bg-white p-3 rounded-md ">
                         <h1> Enter amount </h1>
-                        <input type="text" class="px-1 py-2 border-2 border-gray-600/20 w-full rounded-md my-1 pl-3">
-                        <button class="px-2 py-2 block w-full my-2 bg-slate-800 text-slate-200 rounded-sm text-sm " > Deposit </button>
+                        <input type="number" id="deposit-amount" value="0" class="px-1 py-2 border-2 border-gray-600/20 w-full rounded-md my-1 pl-3">
+                        <button class="px-2 py-2 block w-full my-2 bg-slate-800 text-slate-200 rounded-sm text-sm " id="deposit"> Deposit </button>
                     </div>
                     <div id="withdray-box" class="bg-white p-3 rounded-md hidden">
-                        <h1> Enter amount </h1>
-                        <input type="text" class="px-1 py-2 border-2 border-gray-600/20 w-full rounded-md my-1 pl-3">
-                        <button class="px-2 py-2 block w-full my-2 bg-slate-800 text-slate-200 rounded-sm text-sm " > Deposit </button>
+                        <h1> Enter ammount to withdraw </h1>
+                        <input type="text" id="withdraw-amount" value="0" class="px-1 py-2 border-2 border-gray-600/20 w-full rounded-md my-1 pl-3">
+                        <button class="px-2 py-2 block w-full my-2 bg-slate-800 text-slate-200 rounded-sm text-sm " id="withdraw" > Withdrow </button>
                     </div>
                     <div id="transfer-box" class="bg-white p-3 rounded-md  hidden">
-                        <h1> Enter amount </h1>
-                        <input type="text" class="px-1 py-2 border-2 border-gray-600/20 w-full rounded-md my-1 pl-3">
-                        <button class="px-2 py-2 block w-full my-2 bg-slate-800 text-slate-200 rounded-sm text-sm " > Deposit </button>
+                        <h1> Enter Recepient user name </h1>
+                        <input type="text" id="recepient-name" class="px-1 py-2 border-2 border-gray-600/20 w-full rounded-md my-1 pl-3">
+                        <!-- <button class="px-2 py-2 block w-full my-2 bg-slate-800 text-slate-200 rounded-sm text-sm " > Deposit </button> -->
+                        <h1> Enter ammount to transfer </h1>
+                        <input type="number"  id='transfer-amount' class="px-1 py-2 border-2 border-gray-600/20 w-full rounded-md my-1 pl-3">
+                        <button class="px-2 py-2 block w-full my-2 bg-slate-800 text-slate-200 rounded-sm text-sm " id="transfer" > Transfer </button>
                     </div>
                 </div>
                 <button class="border-2 block my-2 mt-3 text-center py-3 rounded-md w-full" onclick="logout()"> Log out </button>
