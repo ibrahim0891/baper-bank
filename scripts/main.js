@@ -12,3 +12,16 @@ menuAvater.src = data['avater']
 let balance = document.getElementById('balance')
 balance.innerText = `${data.Balance}$`
 
+//make the tab work
+
+//get tabbox and its child elements
+
+let tab = document.getElementById('tab-box')
+
+let tabArray = Array.from(tab.children)
+
+tabArray.map((tab)=>{
+    tab.addEventListener('click', (e)=>{
+        
+    })
+})
