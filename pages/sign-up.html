@@ -1,26 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/styles/main.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+
 </head>
+
 <body>
-    <h1> Sign up</h1>
-    <div>
-        <p>username</p>
-        <input type="text" id="signup-user-name">
-        <p>Password</p>
-        <input type="text" id="signup-password">
-        <div style="padding: 1rem ; padding-left: 0;">
-            <input type="checkbox" id=""> I agree with all terms and condition.
-        </div>
-        <button id="signup-button">sign up</button>
-    </div>
-    <div>
-        <h3> Already have account? <a href="login-page.html"> Log in </a></h3>
+    <div class="w-[375px] h-[600px] m-auto mt-12 border-2 border-gray-300  rounded-xl overflow-hidden">
+        <section class="">
+            <div class=" py-6 pb-1 px-3 ">
+                <h1 class="font-bold text-3xl text-center "> Create an account to continue</h1>
+            </div>
+            <form class="p-4 mt-3">
+                <p  class="text-xl font-thin">username or email</p>
+                <input class="px-3 py-2 border-3 border-gray-300 my-3 bg-gray-100 w-full  block" type="text" id="signup-user-name" placeholder="Enter a username">
+                <p>Password</p>
+                <input class="px-3 py-2 border-3 border-gray-300 my-3 bg-gray-100 w-full  block" type="text" id="signup-password" placeholder="Enter password">
+                <div style="padding: 1rem ; padding-left: 0;">
+                    <input type="checkbox" id=""> I agree with all terms and condition.
+                </div>
+                <button class="py-3 bg-slate-500 hover:bg-slate-700 text-slate-200 font-bold block w-full" id="signup-button">sign up</button>
+            </form>
+            <div class="py-5 text-center pb-0 "> <hr> <span class="m-auto translate-y-[-50%] bg-white w-[60px] block">or</span></div>
+            <div class="px-4 pb-4 text-center">
+                <h3> Already have account? <a class="text-blue-800 underline font-bold" href="login-page.html"> Log in </a></h3>
+            </div>
+        </section>
     </div>
     <script src="/scripts/signup.js"></script>
 </body>
+
 </html>
