@@ -15,58 +15,77 @@
     <script src="/scripts/handleSession.js"></script>
 </head>
 
-<body>
-    <div  class="w-[375px] h-[auto] m-auto mt-12 border-2 border-gray-300  rounded-xl overflow-hidden">
-        <nav class="shadow-md p-4 bg-white flex items-center justifybetween">
-            <div class="w-1/2 flex items-center">
-                <span class="">
-                    <i class="fa-solid fa-bars mr-2"></i>
-                </span>
-                <h1 class="text-xl font-bold"> Baper Bank </h1>
-            </div>
-            <div class="w-1/2 flex justify-end">
-                <span id='balance' style='font-family: sans-serif;' class="bg-gray-200 text-gray-700 py-0 rounded-full text-sm mr-2 px-3 py-1">10$</span>
-                <a href='/pages/account-profile.html'>
-                    <img class="w-[32px] rounded-full " id='menu-avater'
-                    src="https://www.hakuhodo-global.com/wp_admin/wp-content/uploads/2018/11/People_Iguchi_20181106_gray674px.jpg"
-                    alt="" srcset="">
-                </a>
-            </div>
-        </nav>
-        <section class="p-4">
-            <h1 class="text-4xl text-center mt-12 mb-2" id='greet' > Hello!  </h1>
-            <img src="https://static.vecteezy.com/system/resources/previews/020/995/234/large_2x/3d-minimal-financial-or-money-growing-concept-growing-business-concept-small-tree-growing-from-money-3d-rendering-illustration-free-png.png" alt="">
-            <div class="flex items-center justify-between pt-8 rounded-t-lg overflow-hidden"  id="tab-box">
-                <button onclick="openTab(event,'deposit-box')"  class="tab-button px-4 py-2 text-md bg-gray-100 bg-gray-200 text-gray-700  border-1 border-gray-300/20 w-1/3"> Deposit </button>
-                <button onclick="openTab(event,'withdray-box')" class="tab-button px-4 py-2 text-md bg-gray-100 text-gray-700 border-1 border-gray-300/20 w-1/3"> Withdraw </button>
-                <button onclick="openTab(event,'transfer-box')" class="tab-button px-4 py-2 text-md bg-gray-100 text-gray-700 border-1 border-gray-300/20 w-1/3"> Transfer </button>
-            </div>
-            <div class="w-full bg-gray-200 p-3 " id="tab-content-box">
-                    <div id="deposit-box" class="bg-white p-3 rounded-md ">
-                        <h1> Enter amount </h1>
-                        <input type="number" id="deposit-amount" value="0" class="px-1 py-2 border-2 border-gray-600/20 w-full rounded-md my-1 pl-3">
-                        <button class="px-2 py-2 block w-full my-2 bg-slate-800 text-slate-200 rounded-sm text-sm " id="deposit"> Deposit </button>
-                    </div>
-                    <div id="withdray-box" class="bg-white p-3 rounded-md hidden">
-                        <h1> Enter ammount to withdraw </h1>
-                        <input type="text" id="withdraw-amount" value="0" class="px-1 py-2 border-2 border-gray-600/20 w-full rounded-md my-1 pl-3">
-                        <button class="px-2 py-2 block w-full my-2 bg-slate-800 text-slate-200 rounded-sm text-sm " id="withdraw" > Withdrow </button>
-                    </div>
-                    <div id="transfer-box" class="bg-white p-3 rounded-md  hidden">
-                        <h1> Enter Recepient user name </h1>
-                        <input type="text" id="recepient-name" class="px-1 py-2 border-2 border-gray-600/20 w-full rounded-md my-1 pl-3">
-                        <!-- <button class="px-2 py-2 block w-full my-2 bg-slate-800 text-slate-200 rounded-sm text-sm " > Deposit </button> -->
-                        <h1> Enter ammount to transfer </h1>
-                        <input type="number"  id='transfer-amount' class="px-1 py-2 border-2 border-gray-600/20 w-full rounded-md my-1 pl-3">
-                        <button class="px-2 py-2 block w-full my-2 bg-slate-800 text-slate-200 rounded-sm text-sm " id="transfer" > Transfer </button>
-                    </div>
+<body class="" >
+    <div id="frame" class="w-[375px] h-[auto] m-auto mt-12 border-8 border-gray-900  rounded-[2rem] overflow-hidden relative">
+        <div class="w-[375px] absolute bg-white top-0 left-0 flex justify-center items-center" id="loadingScreen" >
+            <img height="48"  src="https://miro.medium.com/v2/resize:fit:1400/1*CsJ05WEGfunYMLGfsT2sXA.gif" alt="" srcset="">
+            <!-- <img src="https://www.galls.com/css/ajax-loader.gif" alt="" srcset=""> -->
+            <!-- <img src="https://media.tenor.com/ZEt80pDEva8AAAAC/loading-buffering.gif" alt="" srcset=""> -->
+            <!-- <img height="48" width="48" src="https://raw.githubusercontent.com/Codelessly/FlutterLoadingGIFs/master/packages/cupertino_activity_indicator_selective.gif" alt="" srcset=""> -->
+            
+        </div>
+        <!-- fake loader -->
+
+        <div id="main-screen">
+            <nav class="shadow-md p-4 bg-white flex items-center justifybetween">
+                <div class="w-1/2 flex items-center">
+                    <span class="">
+                        <i class="fa-solid fa-bars mr-2"></i>
+                    </span>
+                    <h1 class="text-xl font-bold"> Baper Bank </h1>
                 </div>
-                <button class="border-2 block my-2 mt-3 text-center py-3 rounded-md w-full" onclick="logout()"> Log out </button>
-            </div>
-        </section>
+                <div class="w-1/2 flex justify-end">
+                    <span id='balance' style='font-family: sans-serif;' class="bg-gray-200 text-gray-700 py-0 rounded-full text-sm mr-2 px-3 py-1">10$</span>
+                    <a href='/pages/account-profile.html'>
+                        <img class="w-[32px] rounded-full " id='menu-avater'
+                        src="https://www.hakuhodo-global.com/wp_admin/wp-content/uploads/2018/11/People_Iguchi_20181106_gray674px.jpg"
+                        alt="" srcset="">
+                    </a>
+                </div>
+            </nav>
+            <section class="p-4">
+                <h1 class="text-4xl text-center mt-12 mb-2" id='greet' > Hello!  </h1>
+                <img src="https://static.vecteezy.com/system/resources/previews/020/995/234/large_2x/3d-minimal-financial-or-money-growing-concept-growing-business-concept-small-tree-growing-from-money-3d-rendering-illustration-free-png.png" alt="">
+                <div class="flex items-center justify-between pt-8 rounded-t-lg overflow-hidden"  id="tab-box">
+                    <button onclick="openTab(event,'deposit-box')"  class="tab-button px-4 py-2 text-md bg-gray-100 bg-gray-200 text-gray-700  border-1 border-gray-300/20 w-1/3"> Deposit </button>
+                    <button onclick="openTab(event,'withdray-box')" class="tab-button px-4 py-2 text-md bg-gray-100 text-gray-700 border-1 border-gray-300/20 w-1/3"> Withdraw </button>
+                    <button onclick="openTab(event,'transfer-box')" class="tab-button px-4 py-2 text-md bg-gray-100 text-gray-700 border-1 border-gray-300/20 w-1/3"> Transfer </button>
+                </div>
+                <div class="w-full bg-gray-200 p-3 " id="tab-content-box">
+                        <div id="deposit-box" class="bg-white p-3 rounded-md ">
+                            <h1> Enter amount </h1>
+                            <input type="number" id="deposit-amount" value="0" class="px-1 py-2 border-2 border-gray-600/20 w-full rounded-md my-1 pl-3">
+                            <button class="px-2 py-2 block w-full my-2 bg-slate-800 text-slate-200 rounded-sm text-sm " id="deposit"> Deposit </button>
+                        </div>
+                        <div id="withdray-box" class="bg-white p-3 rounded-md hidden">
+                            <h1> Enter ammount to withdraw </h1>
+                            <input type="text" id="withdraw-amount" value="0" class="px-1 py-2 border-2 border-gray-600/20 w-full rounded-md my-1 pl-3">
+                            <button class="px-2 py-2 block w-full my-2 bg-slate-800 text-slate-200 rounded-sm text-sm " id="withdraw" > Withdrow </button>
+                        </div>
+                        <div id="transfer-box" class="bg-white p-3 rounded-md  hidden">
+                            <h1> Enter Recepient user name </h1>
+                            <input type="text" id="recepient-name" class="px-1 py-2 border-2 border-gray-600/20 w-full rounded-md my-1 pl-3">
+                            <!-- <button class="px-2 py-2 block w-full my-2 bg-slate-800 text-slate-200 rounded-sm text-sm " > Deposit </button> -->
+                            <h1> Enter ammount to transfer </h1>
+                            <input type="number"  id='transfer-amount' class="px-1 py-2 border-2 border-gray-600/20 w-full rounded-md my-1 pl-3">
+                            <button class="px-2 py-2 block w-full my-2 bg-slate-800 text-slate-200 rounded-sm text-sm " id="transfer" > Transfer </button>
+                        </div>
+                    </div>
+                    <button class="border-2 block my-2 mt-3 text-center py-3 rounded-md w-full" onclick="logout()"> Log out </button>
+                </div>
+            </section>
+        </div>
     </div>
 
     <script src="/scripts/main.js"></script>
+    <script>
+        let frameHeight = document.getElementById('frame').offsetHeight
+        document.getElementById('loadingScreen').style.height = frameHeight +'px'
+
+        // setTimeout(()=>{
+        //     document.getElementById('loadingScreen').style.display = 'none'
+        // },6000)
+    </script>
 </body>
 <script src="/scripts/dummyDatabase.js"></script>
 
